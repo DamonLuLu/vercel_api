@@ -4,7 +4,8 @@ import google.generativeai as genai
 app = Flask(__name__)
 
 @app.route('/gemini/chat', methods=['POST'])
-def gemini_chat(data: dict):
+def gemini_chat():
+    data = request.get_json()
     prompt = data.get('prompt')
     api_key= data.get('api_key')
     try:
